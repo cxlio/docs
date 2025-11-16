@@ -1,0 +1,44 @@
+<script>window.CONFIG={"packageName":"@cxl/spec","activeVersion":"1.0.1","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/spec","activeVersion":"1.0.1","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/spec" /><script type="module" src="3doc.js"></script><title>@cxl/spec API Reference</title><style>
+doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
+c-page { opacity: 0; }
+c-page[ready] { opacity: 1; }
+#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}
+</style></head>
+<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
+		<c-hr></c-hr>
+		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
+		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--FigureData.html" external><c-avatar size="-1" text="I"></c-avatar>FigureData</doc-item><doc-item href="index--JsonResult.html" external><c-avatar size="-1" text="I"></c-avatar>JsonResult</doc-item><doc-item href="index--Result.html" external><c-avatar size="-1" text="I"></c-avatar>Result</doc-item><doc-item href="index--Test.html" external><c-avatar size="-1" text="C"></c-avatar>Test</doc-item><doc-item href="index--TestApi.html" external><c-avatar size="-1" text="C"></c-avatar>TestApi</doc-item><doc-item href="a11y.html" external><i>a11y.ts</i></doc-item><doc-item href="a11y--AccessibilityRule.html" external><c-avatar size="-1" text="I"></c-avatar>AccessibilityRule</doc-item>
+		</c-drawer><c-body><c-t font="h4">@cxl/spec</c-t><p><a href="https://badge.fury.io/js/%40cxl%2Fspec"><img src="https://badge.fury.io/js/%40cxl%2Fspec.svg" alt="npm version"></a></p>
+<p>This library provides a comprehensive testing framework tailored for browser environments, offering utilities for defining tests, assertions, DOM manipulations, event handling, mocking, spying, and accessibility checks.</p>
+<c-t font="h5">Project Details</c-t><ul>
+<li>Branch Version: <a href="https://npmjs.com/package/@cxl/spec/v/1.0.1">1.0.1</a></li>
+<li>License: Apache-2.0</li>
+<li>Documentation: <a href="https://cxlio.github.io/open/spec">Link</a></li>
+<li>Report Issues: <a href="https://github.com/cxlio/open/issues">Github</a></li>
+</ul>
+<c-t font="h5">Installation</c-t><doc-hl><!--npm install @cxl/spec
+--></doc-hl><c-t font="h5">Features</c-t><ul>
+<li>Define synchronous and asynchronous tests and test suites with <code>Test</code> and <code>TestApi</code>.</li>
+<li>Assertions for equality, partial matching, buffer comparison, throwing errors, and custom assertions.</li>
+<li>DOM manipulation helpers and connected test DOM containers.</li>
+<li>Event expectation and testing utilities with promise-based APIs.</li>
+<li>Mocking and spying of functions and properties.</li>
+<li>Accessibility testing integration.</li>
+<li>Advanced time mocking for <code>setTimeout</code>, <code>setInterval</code>, and <code>requestAnimationFrame</code>.</li>
+<li>Actions like hover, tap, click, type, and press with runner command integration.</li>
+<li>Figure-based visual testing support.</li>
+<li>Structured JSON result output for tests.</li>
+</ul>
+<c-t font="h6">Defining Tests</c-t><doc-hl l="ts"><!--import { spec } from '@cxl/spec';
+
+spec('Example test', async test => {
+	test.ok(true, 'This test should pass');
+	test.equal(1 + 1, 2, 'Math works');
+
+	await test.testElement('test a DOM element', async a => {
+		const el = a.element('div');
+		a.ok(el instanceof HTMLElement, 'Element created');
+	});
+});
+--></doc-hl></c-router></c-body></c-application>

@@ -1,0 +1,89 @@
+<script>window.CONFIG={"packageName":"@cxl/tgz","activeVersion":"0.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/tgz","activeVersion":"0.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/tgz" /><script type="module" src="3doc.js"></script><title>@cxl/tgz API Reference</title><style>
+doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
+c-page { opacity: 0; }
+c-page[ready] { opacity: 1; }
+#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}
+</style></head>
+<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
+		<c-hr></c-hr>
+		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
+		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--Output.html" external><c-avatar size="-1" text="I"></c-avatar>Output</doc-item>
+		</c-drawer><c-body><c-t font="h4">@cxl/tgz</c-t><p><a href="https://badge.fury.io/js/%40cxl%2Ftgz"><img src="https://badge.fury.io/js/%40cxl%2Ftgz.svg" alt="npm version"></a></p>
+<p>Lightweight, efficient tool for extracting files from gzip-compressed tarballs.</p>
+<c-t font="h5">Project Details</c-t><ul>
+<li>Branch Version: <a href="https://npmjs.com/package/@cxl/tgz/v/0.1.0">0.1.0</a></li>
+<li>License: GPL-3.0</li>
+<li>Documentation: <a href="https://github.com/cxlio/open/tgz">Link</a></li>
+<li>Report Issues: <a href="https://github.com/cxlio/open/issues">Github</a></li>
+</ul>
+<c-t font="h5">Installation</c-t><doc-hl><!--npm install @cxl/tgz
+--></doc-hl><c-t font="h5">Features</c-t><ul>
+<li><strong>Stream-based Processing</strong>: Handle tar files without loading the entire archive into memory.</li>
+<li><strong>Support for Gzip</strong>: Decompress <code>.tar.gz</code> (tgz) files with built-in gzip support.</li>
+<li><strong>File Extraction</strong>: Extract content with their metadata (path, last modified time) from tar archives.</li>
+</ul>
+<c-t font="h5">Usage</c-t><c-t font="h6">Extracting TAR Streams</c-t><doc-hl l="typescript"><!--import { untarStream } from '@cxl/tgz';
+
+const fileStream = new ReadableStream<Uint8Array>(); // Replace with your stream source.
+
+const extractedFiles = await untarStream(fileStream);
+
+for (const file of extractedFiles) {
+	console.log(`File Path: ${file.path}`);
+	console.log(`Last Modified: ${file.lastModified}`);
+	console.log(`Content:`, new TextDecoder().decode(file.content));
+}
+--></doc-hl><c-t font="h6">Extracting GZIP-TAR (TGZ) Streams</c-t><doc-hl l="typescript"><!--import tgz from '@cxl/tgz';
+
+const tgzStream = new ReadableStream<Uint8Array>(); // Replace with your stream source.
+
+const extractedFiles = await tgz(tgzStream);
+
+for (const file of extractedFiles) {
+	console.log(`File Path: ${file.path}`);
+	console.log(`Last Modified: ${file.lastModified}`);
+	console.log(`Content:`, new TextDecoder().decode(file.content));
+}
+--></doc-hl><c-t font="h5">API</c-t><c-t font="h6"><code>untar(buffer: Uint8Array): Promise&lt;Output[]></code></c-t><p>Extract files from a <code>Uint8Array</code> buffer representing a tar archive.</p>
+<ul>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>buffer</code>: The tar archive as a <code>Uint8Array</code>.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves to an array of <code>Output</code> objects.</li>
+</ul>
+<c-t font="h6"><code>untarStream(stream: ReadableStream&lt;Uint8Array>): Promise&lt;Output[]></code></c-t><p>Extract files from a stream containing tar archive data.</p>
+<ul>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>stream</code>: A <code>ReadableStream</code> of <code>Uint8Array</code> data.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves to an array of <code>Output</code> objects.</li>
+</ul>
+<c-t font="h6"><code>tgz(stream: ReadableStream&lt;Uint8Array>): Promise&lt;Output[]></code></c-t><p>Extract files from a gzipped tar archive (<code>.tar.gz</code>) provided as a stream.</p>
+<ul>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>stream</code>: A <code>ReadableStream</code> of gzipped tar data.</li>
+</ul>
+</li>
+<li><strong>Returns</strong>: A promise that resolves to an array of <code>Output</code> objects.</li>
+</ul>
+<c-t font="h6"><code>Output</code></c-t><p>An object representing a single extracted file.</p>
+<ul>
+<li><strong>Properties</strong>:
+<ul>
+<li><code>path: string</code>: The file path within the tar archive.</li>
+<li><code>lastModified: Date</code>: The last modified time of the file.</li>
+<li><code>content: Uint8Array</code>: The file content.</li>
+</ul>
+</li>
+</ul>
+<c-t font="h5">Notes</c-t><ul>
+<li>Long file paths in tar files (<code>type='L'</code>) are automatically resolved.</li>
+<li>The library enforces path validation to prevent directory traversal vulnerabilities.</li>
+</ul>
+</c-router></c-body></c-application>

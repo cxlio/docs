@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/keyboard","activeVersion":"1.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/keyboard" /><script type="module" src="3doc.js"></script><title>@cxl/keyboard API Reference</title><style>
+doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
+c-page { opacity: 0; }
+c-page[ready] { opacity: 1; }
+#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}
+</style></head>
+<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
+		<c-hr></c-hr>
+		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
+		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--KeyboardLayout.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardLayout</doc-item><doc-item href="index--KeyboardOptions.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardOptions</doc-item>
+		</c-drawer><c-body><c-flex gap="8"><c-chip size="-1" color="primary">interface</c-chip> </c-flex><c-t font="h3">KeyboardLayout</c-t><div><c-t font="subtitle2">Extended By:</c-t> <a href="index--InternalKeyboardLayout.html">InternalKeyboardLayout</a></div><div style="margin-top:32px"><p>The <code>KeyboardLayout</code> interface describes how a keyboard layout should be structured internally.</p></div><c-t font="h6">Methods
+		</c-t><doc-grd><a href="#s20">translate</a></doc-grd><c-t font="h6">Properties
+		</c-t><doc-grd><a href="#s19">modKey</a><a href="#s18">shiftMap</a></doc-grd><c-t font="h5">Methods</c-t><a name="s20"></a><doc-card src="index.ts#L61"><doc-ct><div>translate(ev: <a href="index--Key.html">Key</a>): string</div></doc-ct><p>Describes a function that translates a <code>Key</code> object (representing a keyboard event) to a character string.</p><c-t font="subtitle2">Parameters</c-t><ul><li><code>ev: <a href="index--Key.html">Key</a></code></li></ul></doc-card><c-t font="h5">Properties</c-t><a name="s19"></a><doc-card src="index.ts#L55"><doc-ct><div>modKey?: 'metaKey' | 'ctrlKey'</div></doc-ct><p><p>Indicates whether the 'meta' or 'ctrl' key is the primary modifier used for commands,
+differing based on the operating system (e.g., 'metaKey' for macOS).</p>
+</p></doc-card><a name="s18"></a><doc-card src="index.ts#L50"><doc-ct><div>shiftMap: <a href="#s33">Record</a>&lt;string, string | undefined&gt;</div></doc-ct><p><p>A mapping of shifted keys to their non-shifted counterparts, used to accurately
+interpret which character a shifted key press represents.</p>
+</p></doc-card></c-body></c-application>

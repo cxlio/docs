@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/keyboard","activeVersion":"1.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/keyboard" /><script type="module" src="3doc.js"></script><title>@cxl/keyboard API Reference</title><style>
+doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
+c-page { opacity: 0; }
+c-page[ready] { opacity: 1; }
+#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}
+</style></head>
+<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
+		<c-hr></c-hr>
+		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
+		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--KeyboardLayout.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardLayout</doc-item><doc-item href="index--KeyboardOptions.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardOptions</doc-item>
+		</c-drawer><c-body><c-flex gap="8"><c-chip size="-1" color="primary">module</c-chip> </c-flex><c-t font="h3">index.ts</c-t><div style="margin-top:32px"></div><c-t font="h6">Constants
+		</c-t><doc-grd><a href="#s35">KeyboardLayoutData</a></doc-grd><c-t font="h6">Functions
+		</c-t><doc-grd><a href="#s39">handleKeyboard</a><a href="#s52">normalize</a><a href="#s49">parseKey</a></doc-grd><c-t font="h6">Interfaces
+		</c-t><doc-grd><a href="index--KeyboardLayout.html">KeyboardLayout</a><a href="index--KeyboardOptions.html">KeyboardOptions</a></doc-grd><c-t font="h5">Constants</c-t><a name="s35"></a><doc-card src="index.ts#L130"><doc-ct><div>KeyboardLayoutData: <a href="#s33">Record</a>&lt;string, <a href="index--KeyboardLayout.html">KeyboardLayout</a>&gt;</div></doc-ct></doc-card><c-t font="h5">Functions</c-t><a name="s39"></a><doc-card src="index.ts#L187"><doc-ct><div>handleKeyboard({
+	element,
+	onKey,
+	delay,
+	layout,
+	capture,
+}: <a href="index--KeyboardOptions.html">KeyboardOptions</a>): () => void</div></doc-ct><p><p>The <code>handleKeyboard</code> function sets up event listeners to handle keyboard events on a given HTML element.
+It accepts a  configuration object (<code>KeyboardOptions</code>) which includes the target HTML element, a callback
+<code>onKey</code> to handle keyboard sequences, a <code>delay</code> for typing sequence recognition, an optional keyboard
+layout, and an optional capture mode for events.</p>
+<ul>
+<li>Defaults the delay to 250ms if not specified, using this delay to determine when to treat subsequent
+key presses as part of the same sequence or a new one.</li>
+<li>Determines the keyboard layout, either from the provided options or defaults, which affects how keys
+(especially with modifiers) are interpreted.</li>
+<li>Adds a <code>keydown</code> event listener to the provided element, allowing modification of event behavior such
+as propagation and default handling based on the <code>onKey</code> callback result.</li>
+<li>Builds a key sequence based on timing and calls the <code>onKey</code> handler with the assembled sequence,
+stopping event propagation based on handler response.</li>
+<li>The handler uses the sequence to manage shortcuts and performs preventative measures against default
+browser actions.</li>
+</ul>
+</p><c-t font="h6">Returns</c-t><p>A cleanup function that removes the event listener.</p><c-t font="subtitle2">Parameters</c-t><ul><li><code>{
+	element,
+	onKey,
+	delay,
+	layout,
+	capture,
+}: <a href="index--KeyboardOptions.html">KeyboardOptions</a></code></li></ul></doc-card><a name="s52"></a><doc-card src="index.ts#L326"><doc-ct><div>normalize(key: string, layout: <a href="index--KeyboardLayout.html">KeyboardLayout</a> = getDefaultLayout()): string</div></doc-ct><p><p>Converts a string representing a key combination into a normalized string format.
+This function takes a <code>key</code> string and an optional <code>layout</code> object (defaults to the user's layout).</p>
+<p>It uses <code>parseKey</code> to break the key combination into individual <code>Key</code> objects, each representing
+a parsed key press. It then converts each <code>Key</code> object back to a string using <code>keyboardEventToString</code>,
+considering the layout's details. This is useful
+for ensuring consistent representation of key sequences across different keyboard layouts.</p>
+</p><c-t font="subtitle2">Parameters</c-t><ul><li><code>key: string</code></li><li><code>layout: <a href="index--KeyboardLayout.html">KeyboardLayout</a> = getDefaultLayout()</code></li></ul></doc-card><a name="s49"></a><doc-card src="index.ts#L319"><doc-ct><div>parseKey(key: string, layout: <a href="index--KeyboardLayout.html">KeyboardLayout</a> = getDefaultLayout()): Key[]</div></doc-ct><c-t font="subtitle2">Parameters</c-t><ul><li><code>key: string</code></li><li><code>layout: <a href="index--KeyboardLayout.html">KeyboardLayout</a> = getDefaultLayout()</code></li></ul></doc-card></c-body></c-application>

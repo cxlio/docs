@@ -1,0 +1,86 @@
+<script>window.CONFIG={"packageName":"@cxl/rx","activeVersion":"1.0.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/rx","activeVersion":"1.0.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/rx" /><script type="module" src="3doc.js"></script><title>@cxl/rx API Reference</title><style>
+doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
+c-page { opacity: 0; }
+c-page[ready] { opacity: 1; }
+#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}
+</style></head>
+<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
+		<c-hr></c-hr>
+		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
+		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--BehaviorSubject.html" external><c-avatar size="-1" text="C"></c-avatar>BehaviorSubject</doc-item><doc-item href="index--CancelSignal.html" external><c-avatar size="-1" text="C"></c-avatar>CancelSignal</doc-item><doc-item href="index--EmptyError.html" external><c-avatar size="-1" text="C"></c-avatar>EmptyError</doc-item><doc-item href="index--Observable.html" external><c-avatar size="-1" text="C"></c-avatar>Observable</doc-item><doc-item href="index--Observer.html" external><c-avatar size="-1" text="I"></c-avatar>Observer</doc-item><doc-item href="index--OrderedSubject.html" external><c-avatar size="-1" text="C"></c-avatar>OrderedSubject</doc-item><doc-item href="index--Reference.html" external><c-avatar size="-1" text="C"></c-avatar>Reference</doc-item><doc-item href="index--ReplaySubject.html" external><c-avatar size="-1" text="C"></c-avatar>ReplaySubject</doc-item><doc-item href="index--Subject.html" external><c-avatar size="-1" text="C"></c-avatar>Subject</doc-item><doc-item href="index--Subscribable.html" external><c-avatar size="-1" text="I"></c-avatar>Subscribable</doc-item><doc-item href="index--Subscription.html" external><c-avatar size="-1" text="I"></c-avatar>Subscription</doc-item>
+		</c-drawer><c-body><c-t font="h4">@cxl/rx</c-t><p><a href="https://badge.fury.io/js/%40cxl%2Frx"><img src="https://badge.fury.io/js/%40cxl%2Frx.svg" alt="npm version"></a></p>
+<p>A lightweight reactive programming library focused on usability, performance, and type safety.</p>
+<c-t font="h5">Project Details</c-t><ul>
+<li>Branch Version: <a href="https://npmjs.com/package/@cxl/rx/v/1.0.0">1.0.0</a></li>
+<li>License: Apache-2.0</li>
+<li>Documentation: <a href="https://cxlio.github.io/open/rx">Link</a></li>
+<li>Report Issues: <a href="https://github.com/cxlio/open/issues">Github</a></li>
+</ul>
+<c-t font="h5">Installation</c-t><doc-hl><!--npm install @cxl/rx
+--></doc-hl><c-t font="h5">Features</c-t><ul>
+<li><strong>Observable Implementation</strong>: Core observable functionality for representing asynchronous or event-based streams.</li>
+<li><strong>Subjects</strong>: Includes <code>Subject</code>, <code>OrderedSubject</code>, <code>BehaviorSubject</code>, <code>ReplaySubject</code>, and <code>Reference</code> for various use cases.</li>
+<li><strong>Operators</strong>: A rich collection of operators for transforming, filtering, combining, and composing observables.</li>
+<li><strong>Utility Functions</strong>: Includes tools like <code>pipe</code>, <code>from</code>, <code>of</code>, <code>concat</code>, <code>merge</code>, and more for observable creation and composition.</li>
+<li><strong>Built-in Cancellation</strong>: Leverages cancellation signals for efficient resource management and clean teardown.</li>
+<li><strong>Promise Interoperability</strong>: Convert promises to observables and vice versa seamlessly.</li>
+<li><strong>Minimal Dependencies</strong>: Designed for high performance with no external dependencies.</li>
+</ul>
+<c-t font="h5">Installation</c-t><p>Install the package via npm:</p>
+<doc-hl l="sh"><!--npm install @cxl/rx
+--></doc-hl><p>Or with yarn:</p>
+<doc-hl l="sh"><!--yarn add @cxl/rx
+--></doc-hl><c-t font="h5">Getting Started</c-t><c-t font="h6">Create an Observable</c-t><doc-hl l="typescript"><!--import { observable } from '@cxl/rx';
+
+const myObservable = observable(observer => {
+	observer.next('Hello');
+	observer.next('World');
+	observer.complete();
+});
+
+myObservable.subscribe({
+	next: value => console.log(value),
+	complete: () => console.log('Done'),
+});
+--></doc-hl><c-t font="h6">Using Operators</c-t><doc-hl l="typescript"><!--import { of } from '@cxl/rx';
+
+of(1, 2, 3, 4)
+	.map(x => x * 2),
+	.filter(x => x > 4),
+	.subscribe(console.log); // Outputs: 6, 8
+--></doc-hl><c-t font="h6">Creating a Subject</c-t><doc-hl l="typescript"><!--import { subject } from '@cxl/rx';
+
+const mySubject = subject<number>();
+
+mySubject.subscribe({
+	next: value => console.log(`Observer 1: ${value}`),
+});
+
+mySubject.next(1);
+mySubject.next(2);
+
+mySubject.subscribe({
+	next: value => console.log(`Observer 2: ${value}`),
+});
+
+mySubject.next(3);
+--></doc-hl><c-t font="h5">Utilities</c-t><c-t font="h6">Cancellation Signals</c-t><p>External cancellation mechanisms for better control:</p>
+<doc-hl l="typescript"><!--import { cancel, timer } from '@cxl/rx';
+
+const signal = cancel();
+
+timer(5000).subscribe({
+	next: () => console.log('Completed after 5s'),
+	signal, // Link the cancellation signal
+});
+
+// Cancel the timer before it completes
+signal.next();
+--></doc-hl><c-t font="h6">Promise Interactions</c-t><p>Convert promises into observables:</p>
+<doc-hl l="typescript"><!--import { fromPromise } from '@cxl/rx';
+
+const observable = fromPromise(Promise.resolve('Hello World'));
+
+observable.subscribe(console.log); // Outputs: Hello World
+--></doc-hl></c-router></c-body></c-application>
