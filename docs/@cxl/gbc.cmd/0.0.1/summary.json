@@ -1,0 +1,1 @@
+{"index":[{"id":2,"name":"Kind","kind":2,"flags":1,"type":"ScannerToken['kind']","resolvedType":{"kind":5},"tsconfig":"tsconfig.json"},{"id":1,"name":"ScannerToken","kind":2,"flags":1,"type":"ReturnType","resolvedType":{"kind":5},"tsconfig":"tsconfig.json"}]}

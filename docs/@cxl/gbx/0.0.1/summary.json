@@ -1,0 +1,1 @@
+{"index":[{"id":1,"name":"Project","kind":4,"flags":1,"children":[{"id":2,"name":"files","kind":10,"flags":4,"type":"string[]"}],"tsconfig":"tsconfig.json"}]}
