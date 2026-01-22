@@ -1138,9 +1138,10 @@ c-application[theme=dark] {
 #pagebody { margin: 0 auto; max-width:1200px; }
 #navbar[responsiveon] {
 	overflow:hidden; width:320px;
-	padding: 8px; box-sizing: border-box;
+	box-sizing: border-box;
 	flex-grow: 1;
 }
+::slotted([slot=navbar]) { padding: 8px; }
 c-application { opacity: 0; }
 c-application[ready] { opacity: 1; }
 #version{margin-left:auto;}
