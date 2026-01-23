@@ -971,7 +971,7 @@ ${ee("medium",":host{}")}
 	text-decoration: underline;
 }
 
-	`),e=>{let t=f("div",{className:"hljs"});return t.style.tabSize="4",j(e).append(t),Te(e).switchMap(()=>Bn(e).raf(()=>{let n=e.childNodes[0]?.textContent?.trim()||"";n&&e.formatter&&(n=e.formatter(n)),t.innerHTML=n}))}]});var Co=class extends x{};u(Co,{tagName:"doc-grd",augment:[d(`:host {
+	`),e=>{let t=f("div",{className:"hljs"});return t.style.tabSize="4",j(e).append(t),Te(e).switchMap(()=>Bn(e).raf(()=>{let n=Array.from(e.childNodes).map(r=>r.textContent).join("");t.innerHTML=n&&e.formatter?e.formatter(n):n}))}]});var Co=class extends x{};u(Co,{tagName:"doc-grd",augment:[d(`:host {
 	padding: 8px 16px;
 	display: grid;
 	gap: 16px 12px;
