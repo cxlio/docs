@@ -1,19 +1,73 @@
-<!DOCTYPE html>
-<head><script>window.CONFIG={"packageName":"@cxl/keyboard","activeVersion":"1.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[],"spa":false,"symbols":[{"name":"KeyboardOptions","kind":4,"href":"index--KeyboardOptions.html"},{"name":"KeyboardLayout","kind":4,"href":"index--KeyboardLayout.html"},{"name":"KeyboardLayoutData","kind":31,"href":"index-api.html#s35"},{"name":"handleKeyboard","kind":16,"href":"index-api.html#s39"},{"name":"parseKey","kind":16,"href":"index-api.html#s49"},{"name":"normalize","kind":16,"href":"index-api.html#s52"}]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/keyboard" /><script type="module" src="3doc.js"></script><title>@cxl/keyboard API Reference</title><style>
-doc-ct { gap:8px;margin-bottom:24px;white-space:wrap;font:var(--cxl-font-code);font-size:18px;display:flex;align-items:center; }
-c-page { opacity: 0; }
-c-page[ready] { opacity: 1; }
-#appbar-toolbar {max-width: 1200px; margin: auto; width: 100%}</style></head>
-<c-page><doc-appbar></doc-appbar><c-drawer id="navbar">
-		<doc-item href="index.html" external>Home</doc-item><c-hr></c-hr>	
-		<doc-item href="index-api.html" external><i>Index</i></doc-item><doc-item href="index--KeyboardLayout.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardLayout</doc-item><doc-item href="index--KeyboardOptions.html" external><c-avatar size="-1" text="I"></c-avatar>KeyboardOptions</doc-item>
-		</c-drawer><c-body><c-t font="h4">@cxl/keyboard</c-t><p><a href="https://badge.fury.io/js/%40cxl%2Fkeyboard"><img src="https://badge.fury.io/js/%40cxl%2Fkeyboard.svg" alt="npm version"></a></p>
+<script>window.CONFIG={"packageName":"@cxl/keyboard","activeVersion":"1.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[],"spa":true,"symbols":[{"name":"KeyboardLayout","kind":4,"href":"index--KeyboardLayout.html"},{"name":"KeyboardLayoutData","kind":31,"href":"index-api.html#s44"},{"name":"KeyboardOptions","kind":4,"href":"index--KeyboardOptions.html"},{"name":"enUsKeyboardLayout","kind":31,"href":"index-api.html#s40"},{"name":"handleKeyboard","kind":16,"href":"index-api.html#s48"},{"name":"normalize","kind":16,"href":"index-api.html#s61"},{"name":"parseKey","kind":16,"href":"index-api.html#s58"}]};</script><!DOCTYPE html>
+<head><script>window.CONFIG={"packageName":"@cxl/keyboard","activeVersion":"1.1.0","versions":"../version.json","repository":"https://github.com/cxlio/open.git","demoScripts":[],"spa":true,"symbols":[{"name":"KeyboardLayout","kind":4,"href":"index--KeyboardLayout.html"},{"name":"KeyboardLayoutData","kind":31,"href":"index-api.html#s44"},{"name":"KeyboardOptions","kind":4,"href":"index--KeyboardOptions.html"},{"name":"enUsKeyboardLayout","kind":31,"href":"index-api.html#s40"},{"name":"handleKeyboard","kind":16,"href":"index-api.html#s48"},{"name":"normalize","kind":16,"href":"index-api.html#s61"},{"name":"parseKey","kind":16,"href":"index-api.html#s58"}]};</script><meta charset="utf-8"><meta name="description" content="Documentation for @cxl/keyboard" /><script type="module" src="3doc.js"></script><title>@cxl/keyboard API Reference</title></head><style>doc-app{opacity:0}</style>
+<doc-app><nav slot="navbar">
+		<doc-item size="-1" href="index.html" ><c-icon name="home"></c-icon>Home</doc-item>
+		<c-nav-dropdown open size="-1" target="_next" iconalign="end">
+			<c-icon name="code"></c-icon>API Reference
+		</c-nav-dropdown>
+		<c-nav-target>
+		<doc-item size="-1" href="index-api.html" ><i>Index</i></doc-item><doc-item size="-1" href="index--KeyboardLayout.html" ><c-avatar size="-1" text="I"></c-avatar>KeyboardLayout</doc-item><doc-item size="-1" href="index--KeyboardOptions.html" ><c-avatar size="-1" text="I"></c-avatar>KeyboardOptions</doc-item>
+		</c-nav-target>
+		</nav><c-router><template data-default="true" data-title="Home" data-path="index.html"><c-t font="h4">@cxl/keyboard</c-t><p><a href="https://badge.fury.io/js/%40cxl%2Fkeyboard"><img src="https://badge.fury.io/js/%40cxl%2Fkeyboard.svg" alt="npm version"></a></p>
 <p>Lightweight module for handling keyboard input on HTML elements with customizable layouts and configurable key sequence timing. Provides utilities to parse, normalize, and translate key events into standardized string representations, with support for modifier keys and platform-specific conventions.</p>
 <c-t font="h5">Project Details</c-t><ul>
 <li>Branch Version: <a href="https://npmjs.com/package/@cxl/keyboard/v/1.1.0">1.1.0</a></li>
 <li>License: GPL-3.0</li>
-<li>Documentation: <a href="https:/cxlio.github.io/docs/keyboard">Link</a></li>
+<li>Documentation: <a href="https://cxlio.github.io/docs/@cxl/keyboard">Link</a></li>
 <li>Report Issues: <a href="https://github.com/cxlio/open/issues">Github</a></li>
 </ul>
 <c-t font="h5">Installation</c-t><doc-hl><!--npm install @cxl/keyboard
---></doc-hl></c-body></c-application>
+--></doc-hl></template><template  data-title="KeyboardOptions" data-path="index--KeyboardOptions.html"><doc-page-header kind="Interface"><div slot="tags"></div>KeyboardOptions</doc-page-header><p><p>The <code>KeyboardOptions</code> interface defines the configuration needed to handle keyboard interactions with
+a specific HTML element.</p>
+</p><doc-members><doc-group kind="Property"><doc-member href="#s16">capture</doc-member><doc-member href="#s14">delay</doc-member><doc-member href="#s9">element</doc-member><doc-member href="#s15">layout</doc-member><doc-member href="#s10">onKey</doc-member></doc-group></doc-members><c-t font="h6">Properties</c-t><doc-card kind="Property" name="capture" id="s16" src="index.ts#L38"><doc-hl language="typescript">capture?: boolean</doc-hl><p><p>Boolean indicating whether to capture key events in the capture phase.
+This determines when the event listener reacts in the event propagation flow.</p>
+</p></doc-card><doc-card kind="Property" name="delay" id="s14" src="index.ts#L26"><doc-hl language="typescript">delay?: number</doc-hl><p><p>The time in milliseconds to wait between key presses before resetting the sequence.
+Defaults to 250ms if not provided, ensuring thoughtful key sequences rather than accidental key presses.</p>
+</p></doc-card><doc-card kind="Property" name="element" id="s9" src="index.ts#L14"><doc-hl language="typescript">element: HTMLElement</doc-hl><p><p>Specifies the HTML element on which keyboard events are captured.
+This element will receive focus and listen for key events.</p>
+</p></doc-card><doc-card kind="Property" name="layout" id="s15" src="index.ts#L32"><doc-hl language="typescript">layout?: <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a></doc-hl><p><p>Optional parameter to specify a custom <code>KeyboardLayout</code>.
+Defaults to 'en-US' if not provided. This affects how key combinations and modifier keys are interpreted.</p>
+</p></doc-card><doc-card kind="Property" name="onKey" id="s10" src="index.ts#L19"><doc-hl language="typescript">onKey: (key: string, sequence: string[]) => boolean</doc-hl><p><p>A callback function that processes key events. It receives the current key being pressed
+and the sequence of keys accumulated so far. It returns <code>true</code> or <code>false</code> to indicate whether
+the sequence was consumed.</p>
+</p></doc-card></template><template  data-title="KeyboardLayout" data-path="index--KeyboardLayout.html"><doc-page-header kind="Interface"><div slot="tags"></div>KeyboardLayout</doc-page-header><p>The <code>KeyboardLayout</code> interface describes how a keyboard layout should be structured internally.</p><doc-members><doc-group kind="Method"><doc-member href="#s22">translate</doc-member></doc-group><doc-group kind="Property"><doc-member href="#s20">altName</doc-member><doc-member href="#s19">modKey</doc-member><doc-member href="#s21">modName</doc-member><doc-member href="#s18">shiftMap</doc-member></doc-group></doc-members><c-t font="h6">Methods</c-t><doc-card kind="Method" name="translate" id="s22" src="index.ts#L64"><doc-hl language="typescript">translate?(ev: <doc-a href="index--Key.html">Key</doc-a>): string</doc-hl><p>Describes a function that translates a <code>Key</code> object (representing a keyboard event) to a character string.</p><h6><c-t font="title-small">Parameters</c-t></h6><dl><dt><code>ev: <doc-a href="index--Key.html">Key</doc-a></code></dt><dd></dd></dl></doc-card><c-t font="h6">Properties</c-t><doc-card kind="Property" name="altName" id="s20" src="index.ts#L61"><doc-hl language="typescript">altName?: 'option' | 'alt'</doc-hl></doc-card><doc-card kind="Property" name="modKey" id="s19" src="index.ts#L55"><doc-hl language="typescript">modKey?: 'metaKey' | 'ctrlKey'</doc-hl><p><p>Indicates whether the 'meta' or 'ctrl' key is the primary modifier used for commands,
+differing based on the operating system (e.g., 'metaKey' for macOS).</p>
+</p></doc-card><doc-card kind="Property" name="modName" id="s21" src="index.ts#L63"><doc-hl language="typescript">modName?: 'meta' | 'cmd'</doc-hl></doc-card><doc-card kind="Property" name="shiftMap" id="s18" src="index.ts#L50"><doc-hl language="typescript">shiftMap?: <a href="#s26">Record</a>&lt;string, string | undefined&gt;</doc-hl><p><p>A mapping of shifted keys to their non-shifted counterparts, used to accurately
+interpret which character a shifted key press represents.</p>
+</p></doc-card></template><template  data-title="index.ts" data-path="index-api.html"><doc-page-header kind="Module"><div slot="tags"></div>index.ts</doc-page-header><doc-members><doc-group kind="Constant"><doc-member href="#s44">KeyboardLayoutData</doc-member><doc-member href="#s40">enUsKeyboardLayout</doc-member></doc-group><doc-group kind="Function"><doc-member href="#s48">handleKeyboard</doc-member><doc-member href="#s61">normalize</doc-member><doc-member href="#s58">parseKey</doc-member></doc-group><doc-group kind="Interface"><doc-member href="index--KeyboardLayout.html">KeyboardLayout</doc-member><doc-member href="index--KeyboardOptions.html">KeyboardOptions</doc-member></doc-group></doc-members><c-t font="h6">Constants</c-t><doc-card kind="Constant" name="KeyboardLayoutData" id="s44" src="index.ts#L154"><doc-hl language="typescript">KeyboardLayoutData: <a href="#s26">Record</a>&lt;string, <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a>&gt; = {
+	'en-US': enUsKeyboardLayout,
+}</doc-hl></doc-card><doc-card kind="Constant" name="enUsKeyboardLayout" id="s40" src="index.ts#L134"><doc-hl language="typescript">enUsKeyboardLayout: { shiftMap: Record&lt;string, string | undefined&gt;; translate(: Key): string }</doc-hl></doc-card><c-t font="h6">Functions</c-t><doc-card kind="Function" name="handleKeyboard" id="s48" src="index.ts#L193"><doc-hl language="typescript">handleKeyboard({
+	element,
+	onKey,
+	delay,
+	layout,
+	capture,
+}: <doc-a href="index--KeyboardOptions.html">KeyboardOptions</doc-a>): () => void</doc-hl><p><p>The <code>handleKeyboard</code> function sets up event listeners to handle keyboard events on a given HTML element.
+It accepts a  configuration object (<code>KeyboardOptions</code>) which includes the target HTML element, a callback
+<code>onKey</code> to handle keyboard sequences, a <code>delay</code> for typing sequence recognition, an optional keyboard
+layout, and an optional capture mode for events.</p>
+<ul>
+<li>Defaults the delay to 250ms if not specified, using this delay to determine when to treat subsequent
+key presses as part of the same sequence or a new one.</li>
+<li>Determines the keyboard layout, either from the provided options or defaults, which affects how keys
+(especially with modifiers) are interpreted.</li>
+<li>Adds a <code>keydown</code> event listener to the provided element, allowing modification of event behavior such
+as propagation and default handling based on the <code>onKey</code> callback result.</li>
+<li>Builds a key sequence based on timing and calls the <code>onKey</code> handler with the assembled sequence,
+stopping event propagation based on handler response.</li>
+<li>The handler uses the sequence to manage shortcuts and performs preventative measures against default
+browser actions.</li>
+</ul>
+</p><c-t font="h6">Returns</c-t><p>A cleanup function that removes the event listener.</p><h6><c-t font="title-small">Parameters</c-t></h6><dl><dt><code>{
+	element,
+	onKey,
+	delay,
+	layout,
+	capture,
+}: <doc-a href="index--KeyboardOptions.html">KeyboardOptions</doc-a></code></dt><dd></dd></dl></doc-card><doc-card kind="Function" name="normalize" id="s61" src="index.ts#L331"><doc-hl language="typescript">normalize(key: string, layout: <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a> = getDefaultLayout()): string</doc-hl><p><p>Converts a string representing a key combination into a normalized string format.
+This function takes a <code>key</code> string and an optional <code>layout</code> object (defaults to the user's layout).</p>
+<p>It uses <code>parseKey</code> to break the key combination into individual <code>Key</code> objects, each representing
+a parsed key press. It then converts each <code>Key</code> object back to a string using <code>keyboardEventToString</code>,
+considering the layout's details. This is useful
+for ensuring consistent representation of key sequences across different keyboard layouts.</p>
+</p><h6><c-t font="title-small">Parameters</c-t></h6><dl><dt><code>key: string</code></dt><dd></dd><dt><code>layout: <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a> = getDefaultLayout()</code></dt><dd></dd></dl></doc-card><doc-card kind="Function" name="parseKey" id="s58" src="index.ts#L324"><doc-hl language="typescript">parseKey(key: string, layout: <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a> = getDefaultLayout()): Key[]</doc-hl><h6><c-t font="title-small">Parameters</c-t></h6><dl><dt><code>key: string</code></dt><dd></dd><dt><code>layout: <doc-a href="index--KeyboardLayout.html">KeyboardLayout</doc-a> = getDefaultLayout()</code></dt><dd></dd></dl></doc-card></template></c-router></c-router></doc-app>
